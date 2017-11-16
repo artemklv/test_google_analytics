@@ -2,3 +2,7 @@ services:
 #    core.example:
 #        class: Elama\CoreBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    elama.core.google_analytics_reporting:
+        class: Elama\CoreBundle\Service\GoogleAnalyticsReportingService
+        arguments: ["%google_analytics_auth_params%"]
