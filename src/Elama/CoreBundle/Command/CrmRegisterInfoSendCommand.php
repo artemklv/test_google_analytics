@@ -16,6 +16,6 @@ class CrmRegisterInfoSendCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $gaService = $this->getContainer()->get('elama.core.google_analytics_reporting');
-        var_dump($gaService->getRegisterReport());
+        $data = $gaService->getRegisterReport();
     }
 }

@@ -45,6 +45,10 @@ class GoogleAnalyticsReportingService
         $this->analytics = new Google_Service_AnalyticsReporting($client);
     }
 
+    /**
+     * @param Google_Service_AnalyticsReporting_ReportRequest $request
+     * @return Google_Service_AnalyticsReporting_GetReportsResponse
+     */
     private function getReport(Google_Service_AnalyticsReporting_ReportRequest $request)
     {
         $request = $this->buildRegisterReportRequest();
@@ -53,6 +57,9 @@ class GoogleAnalyticsReportingService
         return $this->analytics->reports->batchGet( $body );
     }
 
+    /**
+     * @return Google_Service_AnalyticsReporting_ReportRequest
+     */
     private function buildRegisterReportRequest()
     {
         $request = new Google_Service_AnalyticsReporting_ReportRequest();
@@ -88,6 +95,10 @@ class GoogleAnalyticsReportingService
         return $request;
     }
 
+    /**
+     * @param Google_Service_AnalyticsReporting_GetReportsResponse $response
+     * @return array
+     */
     private function parseRegisterReport(Google_Service_AnalyticsReporting_GetReportsResponse $response)
     {
         $resp = [];
@@ -122,6 +133,11 @@ class GoogleAnalyticsReportingService
         return $resp;
     }
 
+    /**
+     * Возвращает отчет из Google Analytics о зарегистрировавшихся пользователях
+     *
+     * @return array
+     */
     public function getRegisterReport()
     {
         $request = $this->buildRegisterReportRequest();
